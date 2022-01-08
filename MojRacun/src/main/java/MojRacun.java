@@ -1,3 +1,6 @@
+import korisnik.Korisnik;
+import korisnik.SpisakKorisnika;
+
 import java.util.Scanner;
 
 public class MojRacun {
@@ -32,19 +35,108 @@ public class MojRacun {
         Kako bi meni sto vise olaksali posao pregledanja, ne bi bilo lose da pred svaku klasu i metodu ispisete komentar
         sta tacno ona radi. Iako nema potrebe da bude tog nivao, pogledajte recimo kako su ispisani komentari u javinoj klasi ArrayList.*/
 
+        boolean izlaz1 = false;
+
+        //ArrayList sa spiskom svih korisnika u aplikaciji.
+        SpisakKorisnika spisak = new SpisakKorisnika();
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("""
+
+
+        while (!izlaz1) {
+            System.out.println("""
                     Izaberite jednu od opcija:
                     0. Izlaz iz programa.
                     1. Sign up
                     2. Log in""");
+            int izbor = sc.nextInt();
+            while (izbor < 0 || izbor > 2) {
+                System.out.println("Unesite broj ponovo");
+                izbor = sc.nextInt();
+            }
 
-        boolean izlaz = false;
-        while (!izlaz){
-            System.out.println("Glavni meni");
-            izlaz = true;
+            switch (izbor) {
+                case 0:
+                    System.out.println("Izasli ste iz aplikacije");
+
+                    System.exit(0);
+                    break;
+                case 1: {
+                    System.out.println("Unesite ime i prezime");
+
+                    sc.nextLine();
+
+                    String ime = sc.nextLine();
+
+                    System.out.println("Unesite sifru");
+
+                    String sifra = sc.nextLine();
+                    Korisnik k1 = new Korisnik(ime, sifra);
+                    spisak.dodajKorisnika(k1);
+                    System.out.println("Uspesno ste se registrovali");
+                }
+                break;
+                case 2: {
+                    System.out.println("Unesite ime i prezime:");
+
+                    sc.nextLine();
+
+                    String ime = sc.nextLine();
+
+
+                    System.out.println("Unesite sifru");
+
+                    String sifra = sc.nextLine();
+
+                    for (Korisnik k : spisak.getSpisakKorisnika()) {
+                        if (k.getFullName().equals(ime) && k.getSifra().equals(sifra)) {
+                            System.out.println("Uspesno ste se ulogovali");
+                            izlaz1 = true;
+                        } else System.out.println("Niste uneli tacne podatke. Pokusajte ponovo");
+                    }
+
+                }
+            }
         }
 
 
+        //Provera spiska
+        for (Korisnik k : spisak.getSpisakKorisnika()) System.out.println(k.getKorisnickoIme());
+
+        boolean izlaz2 = false;
+        while (!izlaz2) {
+            System.out.println("Glavni meni");
+            System.out.println("""
+                    Izaberite jednu od opcija:
+                    0. Izlaz iz programa.
+                    1. Proverite stanje racuna
+                    2. Izvrsite kupovinu
+                    3. Novo placanje
+                    4. Spisak transakcija
+                    5. Promenite novac
+                                        
+                                        
+                    """);
+            int izbor = sc.nextInt();
+            while (izbor < 0 || izbor > 7) {
+                System.out.println("Unesite broj ponovo");
+                izbor = sc.nextInt();
+            }
+            switch (izbor) {
+                case 0:
+                    System.out.println("Izasli ste iz aplikacije");
+
+                    System.exit(0);
+                    break;
+                case 1:   //proveriracun();
+
+
+                default:
+                    izlaz2 = true;
+            }
+
+
+        }
     }
+
 }
