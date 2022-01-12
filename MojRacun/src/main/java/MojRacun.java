@@ -41,7 +41,7 @@ public class MojRacun {
         SpisakKorisnika spisak = new SpisakKorisnika();
 
         Scanner sc = new Scanner(System.in);
-
+        Korisnik korisnik = new Korisnik();
 
         while (!izlaz1) {
             System.out.println("""
@@ -91,6 +91,7 @@ public class MojRacun {
                     for (Korisnik k : spisak.getSpisakKorisnika()) {
                         if (k.getFullName().equals(ime) && k.getSifra().equals(sifra)) {
                             System.out.println("Uspesno ste se ulogovali");
+                            korisnik = k;
                             izlaz1 = true;
                         } else System.out.println("Niste uneli tacne podatke. Pokusajte ponovo");
                     }
@@ -98,7 +99,6 @@ public class MojRacun {
                 }
             }
         }
-
 
         //Provera spiska
         for (Korisnik k : spisak.getSpisakKorisnika()) System.out.println(k.getKorisnickoIme());
@@ -128,9 +128,16 @@ public class MojRacun {
 
                     System.exit(0);
                     break;
-                case 1:   //proveriracun();
-
-
+                case 1:   korisnik.proveriRacun(korisnik.getKorisnickoIme());
+                    break;
+                case 2:   //korisnik.izvrsiKupovinu();
+                    break;
+                case 3:     //korisnik.novoPlacanje();
+                    break;
+                case 4:     korisnik.getRacun().getTransakcije();
+                    break;
+                case 5:    //korisnik.promeniteNovac();
+                    break;
                 default:
                     izlaz2 = true;
             }

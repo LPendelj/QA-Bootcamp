@@ -8,6 +8,10 @@ public class Korisnik {
     private String korisnickoIme;
     private String sifra;
 
+    public Korisnik(){
+
+    };
+
     public Korisnik(String fullName, String sifra) {
         this.fullName = fullName;
         this.racun = new Racun();
@@ -53,4 +57,16 @@ public class Korisnik {
     public void setKorisnickoIme(String korisnickoIme) {
         this.korisnickoIme = korisnickoIme;
     }
+
+    public boolean proveriRacun(String korisnickoIme){
+        if(korisnickoIme.equals(this.korisnickoIme)){
+            System.out.println("Stanje racuna je " + this.getRacun().getStanjeNaRacunu());
+            return true;
+        }
+        return false;
+    }
+
+    // public void izvrsiKupovinu();
+    // public void novoPlacanje();
+
 }

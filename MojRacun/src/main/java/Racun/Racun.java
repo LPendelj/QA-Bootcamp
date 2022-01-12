@@ -14,14 +14,14 @@ public class Racun {
         this.idRacuna = getBroj();
         this.stanjeNaRacunu = stanjeNaRacunu;
         this.transakcije = new ArrayList<Transakcija>();
-        broj+=1;
+        broj += 1;
     }
 
     public Racun() {
         stanjeNaRacunu = 0;
         this.idRacuna = getBroj();
         this.transakcije = new ArrayList<Transakcija>();
-        broj+=1;
+        broj += 1;
     }
 
     public static int getBroj() {
@@ -52,4 +52,4 @@ public class Racun {
         return transakcije;
     }
 
-
+}
