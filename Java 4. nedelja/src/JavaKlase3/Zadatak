@@ -1,0 +1,12 @@
+
+
+Napisati klasu Prodavnica koja poseduje sledeca polja/atribute:
+	Naziv prodavnice (string)
+	Ulica (string)
+	Niz zaposlenih (arrayList<Osoba>)
+	Niz proizvoda na stajanju (arraList<ProizvodNaStajanju>)
+	Niz obavljenih kupovina (arrayList<Racun>)
+Napisati konstruktor, nizovi neka budu inicijalno prazni, gettere i settere, toString.
+Napisati metodu za dodavanje i uklanjanje zaposlenih.
+Napisati metodu za dodavanje proizvoda na stajanju, ako proizvod vec postoji na stajaju, samo uvecati kolicinu koja se nalazi na stajanju.
+Napisati metodu koja prima osobu i niz proizvoda koje ta osoba zeli da kupi i vraca kreirani racun.

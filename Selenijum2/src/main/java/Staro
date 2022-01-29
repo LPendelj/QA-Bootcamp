@@ -1,0 +1,6 @@
+
+driver.navigate().to("https://en.wikipedia.org/wiki/Main_Page");
+WebElement searchBox = driver.findElement(By.xpath("//*[@id=\"searchInput\"]"));
+searchBox.sendKeys("Nikola Tesla");
+WebElement searchButton = driver.findElement(By.xpath("//*[@id=\"searchButton\"]"));
+searchButton.click();
